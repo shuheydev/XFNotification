@@ -4,10 +4,9 @@ using Android.Graphics;
 using Android.OS;
 using Android.Support.V4.App;
 using System;
-using Xamarin.Forms;
 using AndroidApp = Android.App.Application;
 
-[assembly: Dependency(typeof(XFNotification.Droid.AndroidNotificationManager))]
+[assembly: Xamarin.Forms.Dependency(typeof(XFNotification.Droid.AndroidNotificationManager))]
 namespace XFNotification.Droid
 {
     public class AndroidNotificationManager : INotificationManager
