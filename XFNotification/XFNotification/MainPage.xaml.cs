@@ -24,8 +24,8 @@ namespace XFNotification
             notificationManager = DependencyService.Get<INotificationManager>();
             notificationManager.NotificationReceived += (sender, eventArgs) =>
             {
-                var evtData = (NotificationEventArg)eventArgs;
-                ShowNotification(evtData.Title, evtData.Message);
+                var eventData = (NotificationEventArg)eventArgs;
+                ShowNotification(eventData.Title, eventData.Message);
             };
         }
 
