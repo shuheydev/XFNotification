@@ -61,6 +61,7 @@ namespace XFNotification.Droid
                 .SetContentText(message)
                 .SetLargeIcon(BitmapFactory.DecodeResource(AndroidApp.Context.Resources, Resource.Drawable.icon))
                 .SetSmallIcon(Resource.Drawable.icon)
+                .SetAutoCancel(true)
                 .SetDefaults((int)NotificationDefaults.Sound | (int)NotificationDefaults.Vibrate);
 
             var notification = builder.Build();
