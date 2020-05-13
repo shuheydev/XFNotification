@@ -62,6 +62,7 @@ namespace XFNotification.Droid
                 .SetLargeIcon(BitmapFactory.DecodeResource(AndroidApp.Context.Resources, Resource.Drawable.icon))
                 .SetSmallIcon(Resource.Drawable.icon)
                 .SetAutoCancel(true)
+                .SetPriority(NotificationCompat.PriorityHigh)//ヘッドアップ通知にする場合はHighにする.Android 7.1以下
                 .SetDefaults((int)NotificationDefaults.Sound | (int)NotificationDefaults.Vibrate);
 
             var notification = builder.Build();
@@ -73,10 +74,11 @@ namespace XFNotification.Droid
         private void CreateNotificationChannel()
         {
             _manager = (NotificationManager)AndroidApp.Context.GetSystemService(AndroidApp.NotificationService);
+            //Channelの作成はAndroid 8.0以上で必要
             if (Build.VERSION.SdkInt >= BuildVersionCodes.O)
             {
                 var channelNameJava = new Java.Lang.String(_channelName);
-                var channel = new NotificationChannel(_channelId, channelNameJava, NotificationImportance.Default)
+                var channel = new NotificationChannel(_channelId, channelNameJava, NotificationImportance.High)//Android 8.0以上の場合はChannelに対してHighを設定する
                 {
                     Description = _channelDescription
                 };
