@@ -44,7 +44,7 @@ namespace XFNotification
         {
             notificationNumber++;
             string title = $"Local Notification #{notificationNumber}";
-            string message = $"You have now receive {notificationNumber} nogirications";
+            string message = $"You have now receive {notificationNumber} notifications";
             notificationManager.ScheduleNotification(title, message);
         }
     }
